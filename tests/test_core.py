@@ -8,9 +8,6 @@ import pytest
 import numpy as np
 import pandas as pd
 from unittest.mock import MagicMock, patch
-
-# To make the test runner find the `lexai_app` package, we might need to adjust the path.
-# This is a common pattern in testing.
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -111,4 +108,4 @@ def test_generate_matches_openai_api_error(mock_openai_client, mock_numpy_load):
     # The function should catch the generic exception and return an error HTML
     assert "Error:" in result
     assert "An issue occurred while processing your request" in result
-    assert "OpenAI API is down" in result # The specific error message should be in the details
+    assert "OpenAI API is down" in result
